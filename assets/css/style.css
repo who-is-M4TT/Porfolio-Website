@@ -652,6 +652,17 @@ body.dark-mode .hireMe-svg-side {
 .self-taught-col {
     padding-left: 60px;
 }
+.self-taught-col h2.self-taught{
+    font-size: 34px;
+}
+
+.self-taught-col h3.self-taught{
+    font-size: 22px;
+}
+
+.self-taught-col h6.self-taught{
+    font-size: 16px;
+}
 .about-detail-main {
     display: flex;
     align-items: center;
