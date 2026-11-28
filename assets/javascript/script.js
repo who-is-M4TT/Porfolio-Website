@@ -157,3 +157,19 @@ window.addEventListener("scroll", activeMenu);
 
 /*------------------------------------- Footer year -------------------------------------*/
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Midnight Teal: cursor spotlight + per-card pointer glow */
+(function () {
+    var body = document.body;
+    window.addEventListener('pointermove', function (e) {
+        body.style.setProperty('--mx', e.clientX + 'px');
+        body.style.setProperty('--my', e.clientY + 'px');
+    }, { passive: true });
+    document.querySelectorAll('.project-card, .contact-sec-box, .edu-grid .education').forEach(function (c) {
+        c.addEventListener('pointermove', function (e) {
+            var r = c.getBoundingClientRect();
+            c.style.setProperty('--cx', (e.clientX - r.left) + 'px');
+            c.style.setProperty('--cy', (e.clientY - r.top) + 'px');
+        });
+    });
+})();

@@ -6,9 +6,9 @@
 
 /*----------------------- Tokens -----------------------*/
 :root {
-    --accent: #2F7BEA;
-    --accent-strong: #1D5FC4;
-    --accent-soft: rgba(47, 123, 234, 0.12);
+    --accent: #14B8A6;
+    --accent-strong: #0E9488;
+    --accent-soft: rgba(45, 212, 191, 0.12);
     --accent-ink: #FFFFFF;
     --border: rgba(0, 0, 0, 0.08);
     --border-strong: rgba(0, 0, 0, 0.16);
@@ -18,25 +18,25 @@
     --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 .dark-mode {
-    --primary-color: #0A0B0D;
-    --section-background: #16171A;
-    --side-menu-color: #16171A;
-    --icons-background: #0A0B0D;
-    --sub-text: #9A9CA1;
-    --accent: #4F9DFF;
-    --accent-strong: #7DB6FF;
-    --accent-soft: rgba(79, 157, 255, 0.12);
-    --accent-ink: #06101F;
-    --border: rgba(255, 255, 255, 0.07);
-    --border-strong: rgba(255, 255, 255, 0.16);
+    --primary-color: #0C0F12;
+    --section-background: #12161A;
+    --side-menu-color: #12161A;
+    --icons-background: #0C0F12;
+    --sub-text: #8E9AA1;
+    --accent: #2DD4BF;
+    --accent-strong: #7CF0E0;
+    --accent-soft: rgba(45, 212, 191, 0.12);
+    --accent-ink: #04211D;
+    --border: rgba(160, 190, 195, 0.12);
+    --border-strong: rgba(160, 190, 195, 0.24);
     --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 /*----------------------- Base -----------------------*/
 body.dark-mode {
     background:
-        radial-gradient(1200px 600px at 85% -10%, rgba(79, 157, 255, 0.10), transparent 60%),
-        radial-gradient(900px 500px at -10% 110%, rgba(79, 157, 255, 0.06), transparent 60%),
+        radial-gradient(1200px 600px at 85% -10%, rgba(45, 212, 191, 0.10), transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, rgba(45, 212, 191, 0.06), transparent 60%),
         var(--primary-color);
     background-attachment: fixed;
     color: var(--main-text);
@@ -499,7 +499,7 @@ footer {
     height: auto;
     max-height: 55%;
     padding: 0;
-    filter: drop-shadow(0 10px 24px rgba(79, 157, 255, 0.25));
+    filter: drop-shadow(0 10px 24px rgba(45, 212, 191, 0.25));
 }
 .project-card:hover .placeholder-cover img {
     transform: none;
@@ -745,7 +745,7 @@ footer {
 .company-link {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: rgba(79, 157, 255, 0.4);
+    text-decoration-color: rgba(45, 212, 191, 0.4);
     text-underline-offset: 3px;
     transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
@@ -953,3 +953,112 @@ button.bottom-top-button:hover {
 .edu-grid .education::before { display: none; }
 .edu-grid .side_circle_ring { display: none; }
 .edu-grid .small_yellow_border_main { padding-left: 0; }
+
+/*======================================================================
+  Midnight Graphite + Teal: immersive layer
+======================================================================*/
+body.dark-mode { --mx: 70%; --my: 20%; }
+
+/* network grid + cursor spotlight, fixed behind everything */
+body.dark-mode::before,
+body.dark-mode::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+body.dark-mode::before {
+    background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 56px 56px;
+    opacity: 0.4;
+    -webkit-mask-image: radial-gradient(70% 60% at 60% 20%, #000, transparent);
+    mask-image: radial-gradient(70% 60% at 60% 20%, #000, transparent);
+}
+body.dark-mode::after {
+    background: radial-gradient(420px circle at var(--mx) var(--my), rgba(45, 212, 191, 0.10), transparent 60%);
+}
+.site-containe { position: relative; z-index: 1; }
+
+/* glass panels */
+header {
+    background: rgba(22, 27, 32, 0.72);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+/* hero: gradient headline + glowing photo */
+.hero-title {
+    background: linear-gradient(100deg, #E8EEF0 20%, var(--accent) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+.hero-img {
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.12), 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 90px rgba(45, 212, 191, 0.18);
+}
+.avatar {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--accent), 0 0 44px rgba(45, 212, 191, 0.35);
+}
+.btn-accent {
+    box-shadow: 0 8px 30px rgba(45, 212, 191, 0.28);
+}
+.btn-accent:hover {
+    box-shadow: 0 12px 40px rgba(45, 212, 191, 0.45);
+}
+.status-dot { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.6); animation: tealPing 2s infinite; }
+@keyframes tealPing {
+    70% { box-shadow: 0 0 0 8px rgba(45, 212, 191, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); }
+}
+
+/* cards: light follows the pointer */
+.project-card,
+.cert-grid > *,
+.contact-sec-box,
+.edu-grid .education {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card::after,
+.contact-sec-box::after,
+.edu-grid .education::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(280px circle at var(--cx, 50%) var(--cy, 0%), rgba(45, 212, 191, 0.14), transparent 60%);
+}
+.project-card:hover::after,
+.contact-sec-box:hover::after,
+.edu-grid .education:hover::after { opacity: 1; }
+.project-card:hover,
+.contact-sec-box:hover {
+    transform: translateY(-4px);
+    border-color: rgba(45, 212, 191, 0.45);
+}
+
+/* timeline glow */
+.resume-experience .education::before {
+    border-left: 1px solid transparent;
+    border-image: linear-gradient(var(--accent), var(--border-strong) 80%) 1;
+}
+.resume-experience .small_yellow_circle { box-shadow: 0 0 14px var(--accent); }
+
+.eyebrow { color: var(--accent); letter-spacing: 0.14em; }
+
+@media (prefers-reduced-motion: reduce) {
+    .status-dot { animation: none; }
+    body.dark-mode::after { display: none; }
+}
+@media (hover: none) {
+    body.dark-mode::after { display: none; }
+}
